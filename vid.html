@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+<head>
+		<title>Відео</title>
+		<meta charset="utf-8">
+		<link href="vid/themes/ui-darkness/jquery-ui-1.8.12.custom.css" rel="stylesheet" media="screen">
+		<link href="vid/themes/jquery.videobackground.css" rel="stylesheet" media="screen">
+        <link href="vid/themes/screen.css" rel="stylesheet" media="screen">
+        
+		<style>
+			/*
+			 * Page specific styling.
+			 *
+			 */
+			body {
+	margin: 0;
+				font-family:
+; 	background-image: url(vid/vid/cont.png);
+			}
+			a {
+				color:
+			}
+			h2 {
+				font-size:
+				font-weight:
+			}
+			li {
+				list-style: none;
+			}
+			dl {
+
+			}
+			dt {
+				float: left;
+				width: 160px;
+			}
+			dd {
+				margin: 0 0 10px 160px;
+			}
+			/*
+			 * If developing a full page background the styles from .video-background will be required.
+			 * The classname itself is unimportant.
+			 *
+			 */
+			.video-background {
+				position: absolute;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				z-index: 0;
+			}
+			.video-background video {
+				min-height: 100%; 
+				min-width:100%; 
+			}
+			#page {
+	position: absolute;
+	z-index: 1;
+	width: 960px;
+	color: #FFF;
+	background: transparent url(vid/vid/cont.png) repeat top left;
+	border-radius: 5px;
+	margin: 0 auto;
+			}
+			#main {
+	padding: 10px;
+	margin: 10px 0;
+	visibility: hidden;
+			}
+		</style>
+        
+		<script src="vid/external/jquery.js"></script>
+		<script src="vid/script/jquery.videobackground.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('dl').toggle();
+				$('h2').bind('click', function(event) {
+					event.preventDefault();
+					$(this).next('dl').slideToggle(500, function() {
+						$('.video-background').videobackground('resize');
+					});
+				});
+				$('body').prepend('<div class="video-background"></div>');
+				$('.video-background').videobackground({
+					videoSource: [
+						['vid/vid/vid.webm', 'video/webm'], 
+						['vid/vid/vid.mp4', 'video/mp4']], 
+					controlPosition: '#main',
+					poster: 'vid/vid/vid.png',
+					loadedCallback: function() {
+						$(this).videobackground('mute');
+					}
+				});
+			});
+		</script>
+    </head>
+    
+    <body>
+	<aside class="hs-menu" id="hs-menu">
+	  <div class="hs-headline">
+  <h1><small>Обрій</small></h1>
+	  <span class="hs-author"> Свій своєму про своє.. </span>
+      <nav class="hs-menu">
+	    <a href="books.html"><span>Книги</span></a>
+	    <a href="photo.html"><span>Галерея</span></a>
+	    <a href="vid.html"><span>Відео</span></a>
+	    <a href="cal.html"><span>Календар</span></a>
+        <a href="file.html"><span>Файли</span></a>
+	    <a href="cont.html"><span>Контакти</span></a>
+					
+					
+      </nav>
+</aside>
+
+
+		
+	<div id="main" role="main">
+						
+					
+					</div>
+                    
+                    <script type="text/javascript" src="vid/js/jquery.meerkat.1.0.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){	
+	meerkat({
+		close: '.close',
+		dontShow: '.dont-show',
+		animation: 'slide',
+		animationSpeed: 2000,
+		dontShowExpire: 0,
+		removeCookie: '.remove-cookie',
+		meerkatPosition: 'bottom',
+		background: '  repeat-x 0 0',
+		height: '900px'
+	});
+	
+});
+</script>
+	<body style="margin: 0pt; padding: 0pt; height: 100%;">	
+    <!--END CONTENTAINER-->    <div style="position: absolute; width: 100%; height: 110px; bottom: -41.25pt; display: block; left: 377px;" id="meerkat-wrap"><div style="background: rgb(46, 42, 34) url(/meerkat/images/meerkat-bg.png) repeat-x scroll 0pt 0pt; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; height: 110px;" id="meerkat-container"><div style="display: block;" id="meerkat">
+        <div id="meerkat-content-adsense" style="color: rgb(255, 255, 255);">
+        <script type="text/javascript" src="http://www.youtubereloaded.com/embed/swfobject.js"></script>
+<div id="YouTubeReloadedPlayer"></div>
+
+<embed
+src="http://www.youtubereloaded.com/embed/player.swf"
+width="900"
+height="700"
+bgcolor="#"
+allowscriptaccess="always"
+allowfullscreen="true"
+flashvars="file=http%3A%2F%2Fgdata.youtube.com%2Ffeeds%2Fapi%2Fusers%2FUCNSGh7h5wO5XVpe1Z_JNs-g%2Fuploads%3Fv%3D2%26max-results%3D10&playlist=bottom&frontcolor=cccccc&lightcolor=66cc00&skin=http://www.youtubereloaded.com/embed/skin3.swf&backcolor=111111&playlistsize=200&stretching=exactfit"
+/>	<a style="cursor: pointer;" class="close"></a></div>
+    </div>
+    </div></div>
+    </body>
+</html>

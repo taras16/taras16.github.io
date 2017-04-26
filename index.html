@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="viewport" content="width=device-width">
+	<style>
+			body {
+	margin: 0;
+	font-style: italic;
+	
+	overflow: hidden;
+			}
+
+			a {
+	;
+			}
+
+			#info {
+				position: absolute;
+				width: 100%;
+				color: #ffffff;
+				padding: 5px;
+				font-family: Baskerville, "Hoefler Text", Garamond, "Times New Roman", serif;
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				z-index: 1;
+			}
+		</style>
+		<link href="index/css/style.css" rel="stylesheet" type="text/css">
+        <link href="index/css/jquery.jscrollpane.custom.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="hs-headline">
+
+	<div id="container">
+   
+    
+    </div>
+    
+    <aside class="hs-menu" id="hs-menu">
+	  <div class="hs-headline">
+      <h1><small>Обрій</small></h1>
+	  <span class="hs-author">Свій своєму про своє..</span>
+      <nav>
+				   <a href="books.html"><span>Книги</span></a>
+				   <a href="photo.html"><span>Галерея</span></a>
+				   <a href="vid.html"><span>Відео</span></a>
+				   <a href="cal.html"><span>Календар</span></a>
+                    <a href="file.html"><span>Файли</span></a>
+				   <a href="cont.html"><span>Контакти</span></a>
+					
+					
+			   </nav>
+    </aside>
+		<script src="index/js/three.min.js"></script>
+	
+
+		<script>
+
+			var camera, scene, renderer;
+
+			var texture_placeholder,
+			isUserInteracting = false,
+			onMouseDownMouseX = 0, onMouseDownMouseY = 0,
+			lon = 90, onMouseDownLon = 0,
+			lat = 0, onMouseDownLat = 0,
+			phi = 0, theta = 0,
+			target = new THREE.Vector3();
+
+			init();	animate();
+
+			function init() {
+
+				var container, mesh;
+
+				container = document.getElementById( 'container' );
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
+
+				scene = new THREE.Scene();
+
+				texture_placeholder = document.createElement( 'canvas' );
+				texture_placeholder.width = 128;
+				texture_placeholder.height = 128;
+
+				var context = texture_placeholder.getContext( '2d' );
+				context.fillStyle = 'rgb( 200, 200, 200 )';
+				context.fillRect( 0, 0, texture_placeholder.width, texture_placeholder.height );
+
+				var materials = [
+
+					loadTexture( 'index/im/px.jpg' ), // right
+					loadTexture( 'index/im/nx.jpg' ), // left
+					loadTexture( 'index/im/py.jpg' ), // top
+					loadTexture( 'index/im/ny.jpg' ), // bottom
+					loadTexture( 'index/im/pz.jpg' ), // back
+					loadTexture( 'index/im/nz.jpg' )  // front
+				];
+
+				mesh = new THREE.Mesh( new THREE.CubeGeometry( 300, 300, 300, 7, 7, 7 ), new THREE.MeshFaceMaterial( materials ) );
+				mesh.scale.x = - 1;
+				scene.add( mesh );
+
+				renderer = new THREE.CanvasRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				container.appendChild( renderer.domElement );				
+
+
+				
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			function loadTexture( path ) {
+
+				var texture = new THREE.Texture( texture_placeholder );
+				var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: true } );
+
+				var image = new Image();
+				image.onload = function () {
+
+					texture.needsUpdate = true;
+					material.map.image = this;
+
+					render();
+
+				};
+				image.src = path;
+
+				return material;
+
+			}
+
+			
+
+		
+
+			
+
+			
+
+			
+			
+function animate() {
+
+				requestAnimationFrame( animate );
+
+				lon +=  0.1;
+				lat = Math.max( - 85, Math.min( 85, lat ) );
+				phi = ( 90 - lat ) * Math.PI / 180;
+				theta = lon * Math.PI / 180;
+
+				target.x = Math.sin( phi ) * Math.cos( theta );
+				target.y = Math.cos( phi );
+				target.z = Math.sin( phi ) * Math.sin( theta );
+
+				camera.lookAt( target );
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+        
+        <body class="impress-not-supported">
+
+
+
+
+
+<div id="impress">
+
+ 
+
+   
+  <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+
+
+
+  <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1" >
+        Обрій
+  </div>
+    
+
+    
+ 
+    
+
+    
+    
+  
+    
+
+    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>Простели свою  <b>Долю</b> <span class="thoughts">під ноги...</span></p>
+    </div>
+
+    
+  
+    
+  <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+        <p> <b class="positioning">Сприйняття </b>, <b class="rotating">розгорни</b> аж до <b class="scaling">Обрію</b> </p>
+    </div>
+
+    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+        <p>Слухай <b><b class="imagination">Серце</b>    </p>
+    </div>
+
+    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+      <p>і </p>
+        <q>не сумнівайся</q>
+    </div>
+
+    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+        <p>так проявиться </p>
+    </div>
+
+   
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <p><span class="have">пр</span> <span class="you">аг</span> <span class="noticed">нення</span> <span class="its">й</span> <span class="in">В</span> <b>о<sup>л</sup></b>я</p>
+        <span class="footnote"></span>
+    </div>
+
+<!--
+<div id="title" class="step" data-x="0" data-y="0" data-scale="1">
+             <span class="try"><img src="im/incy.gif" width="400" height="549"></span>
+  </div>
+
+    -->
+  <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+
+
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<!--
+    
+   
+    
+-->
+<script src="index/js/impress.js"></script>
+<script>impress().init();</script>
+
+
+<script>
+  var impress = impress();
+  impress.init();
+
+  document.addEventListener('impress:stepenter', function(e){
+    if (typeof timing !== 'undefined') clearInterval(timing);
+    var duration = (e.target.getAttribute('data-transition-duration') ? e.target.getAttribute('data-transition-duration') : 1800); // use the set duration or fallback to 2000ms
+    timing = setInterval(impress.next, duration);
+  });
+</script>
+</body>
+</html>

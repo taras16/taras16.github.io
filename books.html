@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+<head>
+		<title>Книги</title>
+		<meta charset="utf-8">
+		<link href="books/themes/ui-darkness/jquery-ui-1.8.12.custom.css" rel="stylesheet" media="screen">
+		<link href="books/themes/jquery.videobackground.css" rel="stylesheet" media="screen">
+        <link href="books/themes/screen.css" rel="stylesheet" media="screen">
+       
+            <link rel="stylesheet" href="books/demo.css">
+
+		<style>
+			/*
+			 * Page specific styling.
+			 *
+			 */
+			body {
+	margin: 0;
+				font-family:
+; 			
+	font-style: italic;
+	background-image: url(/books/img/book.png);
+			}
+			a {
+				
+			}
+			h2 {
+				font-size:
+				font-weight:
+			}
+			li {
+				list-style: none;
+			}
+			dl {
+
+			}
+			dt {
+				float: left;
+				width: 160px;
+			}
+			dd {
+				margin: 0 0 10px 160px;
+			}
+			/*
+			 * If developing a full page background the styles from .video-background will be required.
+			 * The classname itself is unimportant.
+			 *
+			 */
+			.video-background {
+				position: absolute;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				z-index: 0;
+			}
+			.video-background video {
+				min-height: 100%; 
+				min-width:100%; 
+			}
+			#page {
+	position: absolute;
+	z-index: 1;
+	width: 960px;
+	color: #FFF;
+	background:
+	border-radius: 5px;
+	margin: 0 auto;
+			}
+			#main {
+	padding: 10px;
+	margin: 10px 0;
+	visibility: hidden;
+			}
+		</style>
+		<script src="books/external/jquery.js"></script>
+		<script src="books/script/jquery.videobackground.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('dl').toggle();
+				$('h2').bind('click', function(event) {
+					event.preventDefault();
+					$(this).next('dl').slideToggle(500, function() {
+						$('.video-background').videobackground('resize');
+					});
+				});
+				$('body').prepend('<div class="video-background"></div>');
+				$('.video-background').videobackground({
+					videoSource: [
+						['books/vid/books.webm', 'video/webm'], 
+						['books/vid/books.mp4', 'video/mp4']], 
+					controlPosition: '#main',
+					poster: 'books/img/books.png',
+					loadedCallback: function() {
+						$(this).videobackground('mute');
+					}
+				});
+			});
+		</script>
+</head>
+    
+    <body>
+	<aside class="hs-menu" id="hs-menu">
+	  <div class="hs-headline">
+  <h1><small>Обрій</small></h1>
+	  <span class="hs-author"> Свій своєму про своє.. </span>
+      <nav class="hs-menu">
+	    <a href="books.html"><span>Книги</span></a>
+	    <a href="photo.html"><span>Галерея</span></a>
+	    <a href="vid.html"><span>Відео</span></a>
+	    <a href="cal.html"><span>Календар</span></a>
+        <a href="file.html"><span>Файли</span></a>
+	    <a href="cont.html"><span>Контакти</span></a>
+					
+					
+      </nav>
+</aside>
+
+
+		
+	<div id="main" role="main"></div>
+
+    
+    <div id="layer1" style="position: absolute; width: 453px; height: 510px; z-index: 101; left: 320px; top: 114px">
+   
+    <div class="wrapper">
+      <div class="item">
+        <img src="books/img/obriy.jpg" width="200" height="264" /> 
+        <span class="information"><h3>Костянтин 
+Солдатенко</h3>Упершій науково-популярній книжці автора, педагога за фахом і етнографа за покликанням, читач матиме змогу почерпнути безцінні для себе знання і практичні навички вірного життєвого вибору заради гармонії з довкіллям, здоров'я, благополуччя і, найголовніше - відчуття без­ застережного щастя.</span>
+      </div>
+    </div>
+   
+    
+    </div>  
+ 
+    <div id="layer2" style="position: absolute; width: 363px; height: 499px; z-index: 101; left: 723px; top: 116px"><span class="information">
+      <div class="wrapper">
+      <div class="item">
+      <img src="books/img/akcent.jpg" width="200" height="264" /></div>
+    </div>
+    
+    
+    
+    
+    </div>  
+   
+    
+    
+    
+    
+   
+    
+    <script type="text/javascript" src="books/modernizr.custom.34807.js"></script>
+  <script type="text/javascript">
+    if(!Modernizr.csstransforms3d) document.getElementById('information').style.display = 'block';
+  </script>
+  <!-- GA -->
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+</p>
+<p> </p>
+<script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-2260508-2");
+      pageTracker._trackPageview();
+    } catch(err) {}</script>
+    
+    
+    <div class="hs-author" id="layer3" style="position: absolute; width: 210px; height: 57px; z-index: 101; left: 415px; top: 19px; font-style: italic;">
+      <h3><a href="obriy/obriy.html">Обрій</a></h3>
+     </div>
+    
+    
+    
+    <div class="hs-author" id="layer3" style="position: absolute; width: 210px; height: 57px; z-index: 101; left: 787px; top: 19px">
+      <h3><a href="a">Акцент</a></h3>
+    </div>
+</body>
+</html>
